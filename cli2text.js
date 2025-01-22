@@ -10,30 +10,7 @@ async function writeData(data){
 }
 
 
-
-
-
-// function displayTree(dir, indent = 0, ignoredFiles = []) {
-//     const files = readdirSync(dir);
-//     let str ="";
-//     files.forEach(file => {
-//         if (ignoredFiles.some(ignored => file.includes(ignored))) {
-//             return; 
-//         }
-
-//         const fullPath = path.join(dir, file);
-//         const isDirectory = statSync(fullPath).isDirectory();
-
-//         str += ' '.repeat(indent) + (isDirectory ? '📁 ' : '📄 ') + file
-
-//         if (isDirectory) {
-//             displayTree(fullPath, indent + 2, ignoredFiles); // Appel récursif pour parcourir les sous-dossiers
-//         }
-//     });
-// }
-
 async function getData(listOfFiles , dir , exclude_list){
-    // let finalData = `voici les fichiers affichés par la fonction : \n ${displayTree(dir , 0 , exclude_list)}\n`;
     let finalData = "";
     for (const file of listOfFiles){
         let data = await readFile(file, "utf-8");
