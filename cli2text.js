@@ -36,9 +36,15 @@ async function getData(listOfFiles , dir , exclude_list){
     // let finalData = `voici les fichiers affichés par la fonction : \n ${displayTree(dir , 0 , exclude_list)}\n`;
     let finalData = "";
     for (const file of listOfFiles){
-        let data = await readFile(file, "utf-8");
+        let content = await readFile(file, "utf-8");
+        let data = "";
         data +="\n======================================================================================\n";
+        data += `\nContenu du fichier : ${file}\n`;   
+        data +="\n======================================================================================\n";
+        data += content;
+        data += 2*"\n";
         finalData += data;
+
     }
     return finalData;
 }
